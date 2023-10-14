@@ -160,16 +160,3 @@ app.get('/api/songs', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-
-app.get('/songs', async (request,response)=>{
-    //testing repo changes
-    try {
-        console.log('Request received for /api/songs');
-        const songs = await db.all('SELECT * FROM songs');
-        console.log('Songs retrieved from the database:', songs);
-        res.json(songs);
-      } catch (error) {
-        console.error('Error fetching songs:', error);
-        res.status(500).json({ error: error.message });
-      }
-})
