@@ -1,7 +1,7 @@
 --CREATE TABLE songs (song_name varchar(200), song_file BLOB);
 --insert into user (id,email,userame,password)
 --values ("1","ssp@gmail.com","stark","191916")
---select * from user
+select * from user
 --alter table user rename column userame to username 
 --drop table user
 
@@ -11,4 +11,4 @@
 
 --DROP TABLE songs
 
-SELECT * FROM songs
+--SELECT * FROM songs
