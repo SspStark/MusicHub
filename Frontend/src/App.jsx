@@ -10,7 +10,7 @@ const App = () => (
   <Routes>
     <Route exact path="/musichub/login" element={<LoginPage />} />
     <Route exact path="/musichub/sign-up" element={<SignUpPage />} />
-    <Route exact path="/" element={<Home />} />
+    <Route exact path="/musichub/home" element={<Home />} />
   </Routes>
 )
 
