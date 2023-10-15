@@ -16,7 +16,7 @@ const SignUpPage = () => {
   const navigate = useNavigate()
 
   const login = () => {
-    navigate('/musichub/login')
+    navigate('/')
   }
 
   const signupUser = async event => {
