@@ -16,7 +16,7 @@ const SignUpPage = () => {
   const navigate = useNavigate()
 
   const login = () => {
-    navigate('/')
+    navigate('/login')
   }
 
   const signupUser = async event => {

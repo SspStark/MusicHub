@@ -9,7 +9,7 @@ import './App.css'
 const App = () => (
   <Routes>
     <Route exact path="/login" element={<LoginPage />} />
-    <Route exact path="/musichub/sign-up" element={<SignUpPage />} />
+    <Route exact path="/sign-up" element={<SignUpPage />} />
     <Route exact path="/" element={<Home />} />
   </Routes>
 )

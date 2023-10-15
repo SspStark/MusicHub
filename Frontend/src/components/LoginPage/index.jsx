@@ -15,7 +15,7 @@ const LoginPage = () => {
   const navigate = useNavigate()
 
   const signUp = () => {
-    navigate('/musichub/sign-up')
+    navigate('/sign-up')
   }
 
   const forgotPassword = () => {
