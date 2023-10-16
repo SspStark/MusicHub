@@ -3,14 +3,14 @@ import axios from 'axios'
 
 const Home = () => {
   const [songsData, setSongsData] = useState()
-  const [isLoading, setStatus] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const getSongsData = async () => {
       try {
-        const response = await axios.get('http://localhost:3005/api/songs')
+        const response = await axios.get('http://localhost:3005/audio')
         setSongsData(response.data)
-        setStatus(false)
+        setIsLoading(false)
       } catch (error) {
         console.error('Error fetching songs:', error)
       }
@@ -20,28 +20,21 @@ const Home = () => {
 
   const renderSongs = () => (
     <ul>
-      {songsData.map(eachSong => {
-        const byteArray = new Uint8Array(eachSong.song_file.data) // Access the byte data directly
-
-        const blob = new Blob([byteArray], {type: 'audio/mp3'})
-        const url = URL.createObjectURL(blob)
-
-        return (
-          <li key={eachSong.song_name}>
-            <h1>{eachSong.song_name}</h1>
-            <audio controls>
-              <source src={url} type="audio/mp3" />
-            </audio>
-          </li>
-        )
-      })}
+      {songsData.map(eachSong => (
+        <li key={eachSong.title}>
+          <h1>{eachSong.title}</h1>
+          <audio controls>
+            <source src={eachSong.audioUrl} type="audio/mp3" />
+          </audio>
+        </li>
+      ))}
     </ul>
   )
 
   return (
     <>
-      <h1>Go fuck yourself you fooooking DICK HEAD</h1>
-      {!isLoading && renderSongs()}
+      <h1>Welcome to MusicHub</h1>
+      {isLoading ? <p>Loading...</p> : renderSongs()}
     </>
   )
 }
