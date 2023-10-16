@@ -33,12 +33,12 @@ const SignUpPage = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5005/sign-up', options)
+      const response = await fetch('http://localhost:3005/sign-up', options)
       const data = await response.json()
       if (response.ok) {
         console.log(data.msg)
         setSignupData({email: '', username: '', password: ''})
-        navigate('/musichub/login')
+        navigate('/login')
       } else {
         updateError(true)
         setErrorMsg(data.error)

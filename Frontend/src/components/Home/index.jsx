@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     const getSongsData = async () => {
       try {
-        const response = await axios.get('http://localhost:5005/api/songs')
+        const response = await axios.get('http://localhost:3005/api/songs')
         setSongsData(response.data)
         setStatus(false)
       } catch (error) {

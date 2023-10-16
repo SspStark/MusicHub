@@ -35,7 +35,7 @@ const LoginPage = () => {
       body: JSON.stringify(userDetails),
     }
     try {
-      const response = await fetch('http://localhost:5005/login', options)
+      const response = await fetch('http://localhost:3005/login', options)
       const data = await response.json()
       if (response.ok) {
         console.log(data.msg)
@@ -117,7 +117,7 @@ const LoginPage = () => {
         </p>
       </form>
       <p className="sign-up-login">
-        Don't have an account? <span onClick={signUp}>Sign up</span>
+        Don&#39;t have an account? <span onClick={signUp}>Sign up</span>
       </p>
     </div>
   )
