@@ -1,0 +1,32 @@
+POST http://localhost:5005/sign-up
+Content-Type: application/json
+
+{
+  "email":"adam@gmail.com",
+  "username": "adam_richard",
+  "password": "Richard_567"
+}
+
+###
+
+POST http://localhost:5005/login
+Content-Type: application/json
+
+{
+  "username": "adam_richard",
+  "password": "Richard_567"
+}
+###
+
+PUT http://localhost:5005/change-password
+Content-Type: application/json
+
+{
+  "username": "adam_richard",
+  "oldPassword": "Richard@123",
+  "newPassword": "Richard$123"
+}
+###
+
+GET http://localhost:5005/users
+###

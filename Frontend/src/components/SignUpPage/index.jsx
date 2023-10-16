@@ -33,7 +33,7 @@ const SignUpPage = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3004/sign-up', options)
+      const response = await fetch('http://localhost:5005/sign-up', options)
       const data = await response.json()
       if (response.ok) {
         console.log(data.msg)

@@ -35,7 +35,7 @@ const LoginPage = () => {
       body: JSON.stringify(userDetails),
     }
     try {
-      const response = await fetch('http://localhost:3004/login', options)
+      const response = await fetch('http://localhost:5005/login', options)
       const data = await response.json()
       if (response.ok) {
         console.log(data.msg)
