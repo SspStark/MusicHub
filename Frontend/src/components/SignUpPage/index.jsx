@@ -16,7 +16,7 @@ const SignUpPage = () => {
   const navigate = useNavigate()
 
   const login = () => {
-    navigate('/login')
+    navigate('/')
   }
 
   const signupUser = async event => {
@@ -33,12 +33,15 @@ const SignUpPage = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3005/sign-up', options)
+      const response = await fetch(
+        'https://musichub-backend-2e5p.onrender.com/sign-up',
+        options,
+      )
       const data = await response.json()
       if (response.ok) {
         console.log(data.msg)
         setSignupData({email: '', username: '', password: ''})
-        navigate('/login')
+        navigate('/')
       } else {
         updateError(true)
         setErrorMsg(data.error)

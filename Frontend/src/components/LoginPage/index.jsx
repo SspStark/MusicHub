@@ -35,7 +35,10 @@ const LoginPage = () => {
       body: JSON.stringify(userDetails),
     }
     try {
-      const response = await fetch('http://localhost:3005/login', options)
+      const response = await fetch(
+        'https://musichub-backend-2e5p.onrender.com/login',
+        options,
+      )
       const data = await response.json()
       if (response.ok) {
         console.log(data.msg)
