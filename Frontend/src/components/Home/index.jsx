@@ -8,7 +8,9 @@ const Home = () => {
   useEffect(() => {
     const getSongsData = async () => {
       try {
-        const response = await axios.get('http://localhost:3005/audio')
+        const response = await axios.get(
+          'https://musichub-backend-2e5p.onrender.com/audio',
+        )
         setSongsData(response.data)
         setIsLoading(false)
       } catch (error) {
