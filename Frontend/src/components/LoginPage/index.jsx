@@ -41,6 +41,7 @@ const LoginPage = () => {
         console.log(data.msg)
         setLoginData({username: '', password: ''})
         updateError(false)
+        navigate('/home')
       } else {
         updateError(true)
         setErrorMsg(data.error)

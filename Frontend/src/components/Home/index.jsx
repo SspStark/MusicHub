@@ -40,8 +40,8 @@ const Home = () => {
 
   return (
     <>
-      <h1>Welcome to MusicHub</h1>
-      {isLoading ? <h1>Loading...</h1> : renderSongs()}
+      <h1>Go fuck yourself you fooooking DICK HEAD</h1>
+      {!isLoading && renderSongs()}
     </>
   )
 }

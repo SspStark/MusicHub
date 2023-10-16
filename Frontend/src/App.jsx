@@ -8,9 +8,9 @@ import './App.css'
 
 const App = () => (
   <Routes>
-    <Route exact path="/login" element={<LoginPage />} />
+    <Route exact path="/" element={<LoginPage />} />
     <Route exact path="/sign-up" element={<SignUpPage />} />
-    <Route exact path="/" element={<Home />} />
+    <Route exact path="/home" element={<Home />} />
   </Routes>
 )
 
