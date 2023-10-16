@@ -30,12 +30,18 @@ const initializeDBandServer = async () => {
 
 initializeDBandServer();
 
-// Define the user schema
-const userSchema = new mongoose.Schema({
-    email: String,
-    username: String,
-    password: String,
-  });
+  // Define the user schema
+  const userSchema = new mongoose.Schema(
+    {
+      email: String,
+      username: {
+        type: String,
+        unique: true,  // Enforce uniqueness for the username
+        required: true
+      },
+      password: String
+    }
+  );
   
   // Create a Mongoose model for the user
   const User = mongoose.model('User', userSchema);
@@ -55,9 +61,9 @@ const userSchema = new mongoose.Schema({
     const hasNumber = number.test(password);
 
     return(isLengthValid && hasCapital && hasLowerCase && hasSpecialChar && hasNumber);
-}
+  }
 
-app.post('/sign-up', async (request, response) => {
+  app.post('/sign-up', async (request, response) => {
     const { email, username, password } = request.body;
   
     // Check for empty details
@@ -99,7 +105,7 @@ app.post('/sign-up', async (request, response) => {
     }
   });
   
-app.post('/login', async (request, response) => {
+  app.post('/login', async (request, response) => {
     const { username, password } = request.body;
   
     try {
@@ -120,3 +126,48 @@ app.post('/login', async (request, response) => {
       return response.status(500).json({ error: 'Internal server error' });
     }
   });
+
+  app.put('/change-password', async (request, response) => {
+    const { username, oldPassword, newPassword } = request.body;
+  
+    try {
+      // Check if the user exists
+      const user = await User.findOne({ username });
+  
+      if (!user) {
+        return response.status(404).json({ error: 'Username not found' });
+      }
+  
+      // Check if the old password matches the password in the database
+      const isPasswordMatched = await bcrypt.compare(oldPassword, user.password);
+  
+      if (isPasswordMatched) {
+        if (isPasswordStrong(newPassword)) {
+          // Hash the new password
+          const hashedPassword = await bcrypt.hash(newPassword, 10);
+  
+          // Update the password in the database
+          await User.updateOne({ username }, { $set: { password: hashedPassword } });
+  
+          response.status(202).json({ msg: 'Password updated successfully' });
+        } else {
+          response.status(400).json({ error: 'Password must be at least 8 characters and contain one capital letter, one lowercase letter, one special character, and one number' });
+        }
+      } else {
+        response.status(400).json({ error: "Username and password didn't match" });
+      }
+    } catch (error) {
+      console.error('Error during password update', error);
+      return response.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
+  app.get('/users',async(request,response)=>{
+    try{
+      const users=await User.find()
+      response.json(users)
+    }catch(error){
+      console.error('Error fetching users:', error);
+      response.status(500).json({error:'Internal server error'});
+    }
+  })
