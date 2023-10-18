@@ -30,10 +30,10 @@ const Home = () => {
 
   const handlePlay = audio => {
     if (currentAudio && currentAudio !== audio) {
-      // const prevAudio = audioRefs.current[currentAudio];
-      // if (prevAudio) {
-      //   prevAudio.pause();
-      // }
+      /* const prevAudio = audioRefs.current[currentAudio];
+         if (prevAudio) {
+            prevAudio.pause();
+        } */
       currentAudio.pause()
     }
     setCurrentAudio(audio)
