@@ -43,7 +43,7 @@ const Home = () => {
     <ul>
       {songsData.map(eachAudio => (
         <li key={eachAudio.id}>
-          <h1>{eachAudio.title}</h1>
+          <p>{eachAudio.title}</p>
           <audio
             /* ref={(el)=>(audioRefs.current[eachAudio.id]=el)} here ref attribute is fun. 
             that called the dom element as an argument as el */
