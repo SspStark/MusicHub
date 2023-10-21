@@ -45,14 +45,12 @@ const LoginPage = () => {
   const loginUser = async event => {
     event.preventDefault()
     setIsLoading(true)
-    const {username, password} = loginData
-    const userDetails = {username, password}
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(userDetails),
+      body: JSON.stringify(loginData),
     }
     try {
       const response = await fetch(

@@ -22,14 +22,12 @@ const SignUpPage = () => {
   const signupUser = async event => {
     event.preventDefault()
     setIsLoading(true)
-    const {email, username, password} = signupData
-    const userDetails = {email, username, password}
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(userDetails),
+      body: JSON.stringify(signupData),
     }
 
     try {
@@ -39,7 +37,6 @@ const SignUpPage = () => {
       )
       const data = await response.json()
       if (response.ok) {
-        console.log(data.msg)
         setSignupData({email: '', username: '', password: ''})
         navigate('/')
       } else {
