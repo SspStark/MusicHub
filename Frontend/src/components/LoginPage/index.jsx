@@ -1,5 +1,6 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
+import Cookies from 'js-cookie'
 import {BiHide, BiShow} from 'react-icons/bi'
 import '../LoginPage.css'
 
@@ -14,12 +15,31 @@ const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      navigate('/home', {replace: true})
+    }
+  }, [navigate])
+
   const signUp = () => {
     navigate('/sign-up')
   }
 
   const forgotPassword = () => {
     alert("what a fucking idiot you are, can't even remember password")
+  }
+
+  const submitFailure = errorMsg => {
+    updateError(true)
+    setErrorMsg(errorMsg)
+  }
+
+  const submitSuccess = jwtToken => {
+    Cookies.set('jwt_token', jwtToken, {expires: 30})
+    setLoginData({username: '', password: ''})
+    updateError(false)
+    navigate('/home', {replace: true})
   }
 
   const loginUser = async event => {
@@ -41,13 +61,9 @@ const LoginPage = () => {
       )
       const data = await response.json()
       if (response.ok) {
-        console.log(data.msg)
-        setLoginData({username: '', password: ''})
-        updateError(false)
-        navigate('/home')
+        submitSuccess(data.jwt_token)
       } else {
-        updateError(true)
-        setErrorMsg(data.error)
+        submitFailure(data.error)
       }
     } catch (error) {
       console.error('Error during sign-up:', error)
