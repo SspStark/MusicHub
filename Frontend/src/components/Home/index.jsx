@@ -103,7 +103,9 @@ const Home = () => {
     <HomeBg theme={isThemeDark}>
       <HomeHeading theme={isThemeDark}>Welcome to MusicHub</HomeHeading>
       {isLoading ? (
-        <LoadingText theme={isThemeDark}>Loading . . .</LoadingText>
+        <div className="loader-container">
+          <LoadingText theme={isThemeDark}>Loading . . .</LoadingText>
+        </div>
       ) : (
         renderSongs()
       )}

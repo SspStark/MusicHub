@@ -4,7 +4,6 @@ export const HomeBg = styled.div`
   background-color: ${props => (props.theme == true ? '#1b1c1c' : '#edf2f2')};
   margin-top: 70px;
   padding: 20px;
-  height: 100vh;
 `
 export const HomeHeading = styled.h1`
   color: ${props => (props.theme === true ? 'white' : 'black')};
