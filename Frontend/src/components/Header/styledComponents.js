@@ -5,7 +5,7 @@ export const HeaderTag = styled.header`
   color: ${props => (props.theme === true ? 'white' : 'black')};
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 20px;
   position: fixed;
   width: 100%;
   height: 70px;
@@ -14,6 +14,7 @@ export const HeaderTag = styled.header`
 export const HeaderLogo = styled.img`
   width: 50px;
   height: 50px;
+  border-radius: 10px;
 `
 export const HeaderElements = styled.div`
   display: flex;
