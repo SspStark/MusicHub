@@ -17,8 +17,8 @@ const LoginPage = () => {
 
   useEffect(() => {
     const jwtToken = Cookies.get('jwt_token')
-    if (jwtToken !== undefined) {
-      navigate('/home', {replace: true})
+    if (jwtToken) {
+      navigate('/', {replace: true})
     }
   }, [navigate])
 
@@ -39,7 +39,7 @@ const LoginPage = () => {
     Cookies.set('jwt_token', jwtToken, {expires: 30})
     setLoginData({username: '', password: ''})
     updateError(false)
-    navigate('/home', {replace: true})
+    navigate('/', {replace: true})
   }
 
   const loginUser = async event => {

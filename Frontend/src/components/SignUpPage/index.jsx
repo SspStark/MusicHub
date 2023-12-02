@@ -16,7 +16,7 @@ const SignUpPage = () => {
   const navigate = useNavigate()
 
   const login = () => {
-    navigate('/')
+    navigate('/login')
   }
 
   const signupUser = async event => {
@@ -38,7 +38,7 @@ const SignUpPage = () => {
       const data = await response.json()
       if (response.ok) {
         setSignupData({email: '', username: '', password: ''})
-        navigate('/')
+        navigate('/login')
       } else {
         updateError(true)
         setErrorMsg(data.error)
