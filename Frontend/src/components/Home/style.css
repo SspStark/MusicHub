@@ -2,16 +2,20 @@
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   padding-left: 0;
 }
 
 .music-list li {
-  margin: 15px 10px;
+  margin: 20px;
   border: 1px solid grey;
   border-radius: 5px;
   padding: 12px;
 }
 .loader-container {
   height: 100vh;
+}
+
+.audio-image {
+  max-width: 300px;
+  max-height: 300px;
 }

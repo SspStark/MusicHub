@@ -3,7 +3,13 @@ import axios from 'axios'
 
 import MusicHubContext from '../../context/MusicHubContext'
 
-import {HomeBg, HomeHeading, LoadingText, AudioTitle} from './styledComponents'
+import {
+  HomeBg,
+  HomeHeading,
+  LoadingText,
+  AudioTitle,
+  Artist,
+} from './styledComponents'
 import './style.css'
 
 const Home = () => {
@@ -82,15 +88,20 @@ const Home = () => {
     <ul className="music-list">
       {songsData.map(eachAudio => (
         <li key={eachAudio.id}>
-          <AudioTitle className="audio-title" theme={isThemeDark}>
-            {eachAudio.title}
-          </AudioTitle>
+          <img
+            src={eachAudio.image_url}
+            alt={eachAudio.title}
+            className="audio-image"
+          />
+          <AudioTitle theme={isThemeDark}>{eachAudio.title}</AudioTitle>
+          <Artist>{eachAudio.artist}</Artist>
           <audio
             /* ref={(el)=>(audioRefs.current[eachAudio.id]=el)} here ref attribute is fun. 
             that called the dom element as an argument as el */
             controls
             onPlay={() => handlePlay(document.getElementById(eachAudio.id))}
             id={eachAudio.id}
+            className="audio-element"
           >
             <source src={eachAudio.audioUrl} type="audio/mp3" />
           </audio>
