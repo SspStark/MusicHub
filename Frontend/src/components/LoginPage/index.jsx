@@ -27,7 +27,7 @@ const LoginPage = () => {
   }
 
   const forgotPassword = () => {
-    alert("what a fucking idiot you are, can't even remember password")
+    alert(<p>what a fucking idiot you are, can&#39;t even remember password</p>)
   }
 
   const submitFailure = errorMsg => {
@@ -74,6 +74,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-sign-up-page">
+      {showErrorMsg && <p className="error-msg">*{errorMsg}</p>}
       <form className="form" onSubmit={loginUser}>
         <div className="website-logo">
           <img
@@ -129,7 +130,7 @@ const LoginPage = () => {
         <button type="submit" className="login-button" disabled={isLoading}>
           {isLoading ? 'logging in...' : 'Login'}
         </button>
-        {showErrorMsg && <p className="error-msg">*{errorMsg}</p>}
+
         <p className="forgot-password" onClick={forgotPassword}>
           Forgot your password?
         </p>

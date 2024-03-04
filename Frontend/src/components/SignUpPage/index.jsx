@@ -1,6 +1,8 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
+import Cookies from 'js-cookie'
 import {BiHide, BiShow} from 'react-icons/bi'
+import {IoMdInformationCircleOutline} from 'react-icons/io'
 import '../LoginPage.css'
 
 const SignUpPage = () => {
@@ -14,6 +16,13 @@ const SignUpPage = () => {
   const [errorMsg, setErrorMsg] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken) {
+      navigate('/', {replace: true})
+    }
+  }, [navigate])
 
   const login = () => {
     navigate('/login')
@@ -54,6 +63,7 @@ const SignUpPage = () => {
 
   return (
     <div className="login-sign-up-page">
+      {showErrorMsg && <p className="error-msg">*{errorMsg}</p>}
       <form className="form" onSubmit={signupUser}>
         <div className="website-logo">
           <img
@@ -72,6 +82,7 @@ const SignUpPage = () => {
             onChange={event =>
               setSignupData({...signupData, email: event.target.value})
             }
+            required
           />
         </div>
         <div className="input-box">
@@ -84,10 +95,18 @@ const SignUpPage = () => {
             onChange={event =>
               setSignupData({...signupData, username: event.target.value})
             }
+            required
           />
         </div>
         <div className="input-box">
-          <p className="input-label">Create a strong password</p>
+          <div className="password-heading">
+            <p className="input-label">Create a strong password</p>
+            <IoMdInformationCircleOutline
+              className="i-icon"
+              title="must be atleast 8 characters, 1 capital, 1 lowercase, 1 special
+            character, 1 number"
+            />
+          </div>
           <div className="password-container">
             <input
               className="password"
@@ -97,6 +116,7 @@ const SignUpPage = () => {
               onChange={event =>
                 setSignupData({...signupData, password: event.target.value})
               }
+              required
             />
             <div
               className="p-icon-container"
@@ -109,16 +129,11 @@ const SignUpPage = () => {
               )}
             </div>
           </div>
-          <p className="password-validates">
-            *must be atleast 8 characters and one capital, lowercase, special
-            character, number
-          </p>
         </div>
 
         <button type="submit" className="sign-up-btn" disabled={isLoading}>
           {isLoading ? 'signing up...' : 'Sign up'}
         </button>
-        {showErrorMsg && <p className="error-msg">*{errorMsg}</p>}
       </form>
       <p className="sign-up-login">
         Have an account? <span onClick={login}>Login</span>

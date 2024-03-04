@@ -52,7 +52,6 @@
   color: #e2e8f0;
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 5px;
 }
 .input-label {
   color: #e2e8f0;
@@ -140,13 +139,16 @@
 }
 .error-msg {
   color: red;
-  font-size: 12px;
-  margin: 0;
-  margin-top: 5px;
-  align-self: flex-start;
+  font-size: 16px;
+  margin-bottom: 30px;
+  align-self: center;
 }
-.password-validates {
-  color: lightskyblue;
-  font-size: 11px;
-  margin-top: 5px;
+.password-heading {
+  display: flex;
+  align-items: center;
+}
+.i-icon {
+  color: white;
+  align-self: flex-end;
+  margin: 0px 0px 9px 5px;
 }
