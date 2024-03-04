@@ -50,8 +50,9 @@
 }
 .input-box label {
   color: #e2e8f0;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
+  margin-bottom: 6px;
 }
 .input-label {
   color: #e2e8f0;
