@@ -27,7 +27,9 @@ const LoginPage = () => {
   }
 
   const forgotPassword = () => {
-    alert(<p>what a fucking idiot you are, can&#39;t even remember password</p>)
+    alert(
+      "Seems like you memory fucked up, you stupid shit, can't even remember password",
+    )
   }
 
   const submitFailure = errorMsg => {
@@ -74,8 +76,8 @@ const LoginPage = () => {
 
   return (
     <div className="login-sign-up-page">
-      {showErrorMsg && <p className="error-msg">*{errorMsg}</p>}
       <form className="form" onSubmit={loginUser}>
+        {showErrorMsg && <p className="error-msg">*{errorMsg}</p>}
         <div className="website-logo">
           <img
             src="https://res.cloudinary.com/dvgymshsh/image/upload/v1694350601/music-logo_gykg7f.jpg"
@@ -84,7 +86,7 @@ const LoginPage = () => {
           <p>MusicHub</p>
         </div>
         <div className="input-box">
-          <label>Username</label>
+          <label>Username or Email</label>
           <input
             className="email-user"
             type="text"
