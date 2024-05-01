@@ -28,18 +28,6 @@ const SignUpPage = () => {
     navigate('/login')
   }
 
-  const setAlert = error => {
-    if (error == 'Enter a valid email address') {
-      alert(
-        'Seriously, you really think you can just give me some random shit mail id, you lazy cunt. Now shut you ass and give a valid E...just look at the error you got, idiot',
-      )
-    } else if (error == "Password doesn't match requirements") {
-      alert(
-        "I just want to ask a simple question, did crows fucked your eyes or what ?, just check the damn 'i' logo at the password label, you fucking dumbass",
-      )
-    }
-  }
-
   const signupUser = async event => {
     event.preventDefault()
     setIsLoading(true)
@@ -63,7 +51,6 @@ const SignUpPage = () => {
       } else {
         updateError(true)
         setErrorMsg(data.error)
-        setAlert(data.error)
       }
     } catch (error) {
       console.error('Error during sign-up:', error)

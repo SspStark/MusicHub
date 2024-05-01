@@ -10,30 +10,34 @@
   border: 1px solid grey;
   border-radius: 5px;
   padding: 12px;
+  max-width: 250px; /* Limit max width of each item */
+  width: calc(20% -40px); /* Calculate width for 5 items per row with margins */
+}
+
+@media (max-width: 800px) {
+  .music-list li {
+    width: calc(
+      33.33% - 40px
+    ); /* Adjust width for 3 items per row with margins */
+  }
 }
 
 @media (max-width: 400px) {
   .music-list li {
-    width: 100%;
-    margin: 10px 0px;
+    width: calc(50% - 40px); /* Adjust width for 2 items per row with margins */
   }
-}
-.loader-container {
-  height: 100vh;
 }
 
 .audio-image {
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 100%; /* Ensure image doesn't exceed container width */
+  height: auto;
 }
 
-@media (max-width: 400px) {
-  .audio-image {
-    width: 100%;
-    height: 260px;
-  }
-  .audio-element {
-    width: 100%;
-    height: 40px;
-  }
+.audio-element {
+  width: 100%;
+  height: 40px;
+}
+
+.loader-container {
+  height: 100vh;
 }

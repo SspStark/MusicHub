@@ -27,9 +27,7 @@ const LoginPage = () => {
   }
 
   const forgotPassword = () => {
-    alert(
-      "Seems like you memory fucked up, you stupid shit, can't even remember password",
-    )
+    alert("Sorry buddy, I haven't implemted the feature yet")
   }
 
   const submitFailure = errorMsg => {
