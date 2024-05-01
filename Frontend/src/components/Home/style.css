@@ -10,7 +10,7 @@
   border: 1px solid grey;
   border-radius: 5px;
   padding: 12px;
-  max-width: 250px; /* Limit max width of each item */
+  max-width: 300px; /* Limit max width of each item */
   width: calc(20% -40px); /* Calculate width for 5 items per row with margins */
 }
 
