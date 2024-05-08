@@ -1,21 +1,20 @@
 .music-list {
   list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
   padding-left: 0;
 }
 
 .music-list li {
-  margin: 20px;
   border: 1px solid grey;
   border-radius: 5px;
   padding: 12px;
 }
 
 @media (max-width: 400px) {
-  .music-list li {
-    width: 100%;
-    margin: 10px 0px;
+  .music-list {
+    grid-template-columns: 1fr;
   }
 }
 .loader-container {
@@ -23,8 +22,17 @@
 }
 
 .audio-image {
-  max-width: 300px;
-  max-height: 300px;
+  width: 100%;
+  height: 300px;
+}
+.audio-element {
+  width: 100%;
+  height: 50px;
+}
+@media (max-width: 768px) {
+  .music-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 @media (max-width: 400px) {
