@@ -2,6 +2,7 @@ import {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 
 import MusicHubContext from '../../context/MusicHubContext'
+import SkeletonLoader from '../SkeletonLoader/SkeletonLoader'
 
 import {
   HomeBg,
@@ -87,7 +88,7 @@ const Home = () => {
   const renderSongs = () => (
     <ul className="music-list">
       {songsData.map(eachAudio => (
-        <li key={eachAudio.id}>
+        <li key={eachAudio.id} loading="lazy">
           <img
             src={eachAudio.image_url}
             alt={eachAudio.title}
@@ -115,6 +116,9 @@ const Home = () => {
       <HomeHeading theme={isThemeDark}>Welcome to MusicHub</HomeHeading>
       {isLoading ? (
         <div className="loader-container">
+          {Array.from({length: 5}).map((_, index) => (
+            <SkeletonLoader key={index} />
+          ))}
           <LoadingText theme={isThemeDark}>Loading . . .</LoadingText>
         </div>
       ) : (
