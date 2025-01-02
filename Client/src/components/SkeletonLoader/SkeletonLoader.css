@@ -1,0 +1,19 @@
+.skeleton-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.skeleton-image {
+  width: 150px;
+  height: 150px;
+  background-color: #ccc;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.skeleton-text {
+  width: 80%;
+  height: 20px;
+  background-color: #ccc;
+  margin-bottom: 10px;
+}

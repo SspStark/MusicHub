@@ -1,0 +1,43 @@
+POST http://localhost:3005/sign-up
+Content-Type: application/json
+
+{
+  "email":"chopparasubhas@gmail.com",
+  "username": "tark",
+  "password": "Sspmusichub@191916"
+}
+
+###
+
+POST http://localhost:3005/login
+Content-Type: application/json
+
+{
+  "username": " Ssptonystark005@gmail.com",
+  "password": "Sspmusichub@191916"
+}
+###
+
+PUT http://localhost:3005/forgot-password
+Content-Type: application/json
+
+{
+  "email": "ssptonystark005@gmail.com",
+  "newPassword": "Sspmusichub@191916"
+}
+###
+
+GET http://localhost:3005/audio
+###
+
+POST http://localhost:3005/audio
+Content-Type: application/json
+
+{
+  "title":"Cheap Thrills",
+  "artist":"Sia",
+  "image_url":"sia_image",
+  "audio_file": "Sia - Cheap Thrills  ft. Sean Paul.mp3"
+}
+
+###
