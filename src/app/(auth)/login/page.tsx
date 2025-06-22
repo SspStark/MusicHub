@@ -1,11 +1,10 @@
 'use client'
 
 import LoginForm from '@/components/auth/LoginForm';
-import '@/styles/Login.css';
 
 export default function LoginPage() {
   return (
-    <div className="login-sign-up-page">
+    <div className="bg-[url('/images/musichub-bg.jpg')] bg-cover bg-center min-h-screen flex items-center justify-center">
       <LoginForm />
     </div>
   )
